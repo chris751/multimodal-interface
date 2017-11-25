@@ -21,8 +21,8 @@ and replace your-access-token-goes-here with your actual access token-->
     <i class="fa fa-arrow-left fa-5x" aria-hidden="true"></i>
     <i class="fa fa-arrow-right fa-5x" aria-hidden="true"></i> -->
 
-    <style>  
-    
+    <style>
+
     #button1 {
         width: 200px;
         height: 40px;
@@ -47,112 +47,117 @@ and replace your-access-token-goes-here with your actual access token-->
 
     <br>
     <div class="container">
-        <div class="row">   
+        <div class="row">
 
-            <div class="col">
+            <div class="col" id="leftArm">
                 <h1 class="text">Left arm</h1>
 
-                <br>
-                <br>
+                <br />
+                <br />
 
-                <form id="myForm1" method="POST">
-                    <input type="radio" checked="checked" style="display:none;" name="arg" value="save-left-up-high">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
-                </form>
+                <h3 style="float: left">Indensity:</h3> <span id="leftArmIntensity"></span>
+                <br />
+                <br />
+                <h3 style="float: left">Direction:</h3> <span id="leftArmSide"></span>
 
-                <form id="myForm2" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-up-medium">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
-                </form>
+                <div hidden=true>
+                  <form id="myForm1" method="POST">
+                      <input type="radio" checked="checked" style="display:none;" name="arg" value="save-left-up-high">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
+                  </form>
 
-                <form id="myForm3" method="POST">
-                    <input type="radio" checked="checked" style="display:none;" name="arg" value="save-left-up-low">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
-                </form>
+                  <form id="myForm2" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-up-medium">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
+                  </form>
 
-                <form id="myForm4" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-zero">
-                    <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="0">
-                </form>
+                  <form id="myForm3" method="POST">
+                      <input type="radio" checked="checked" style="display:none;" name="arg" value="save-left-up-low">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
+                  </form>
 
-                <form id="myForm5" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-down-low">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
-                </form>
+                  <form id="myForm4" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-zero">
+                      <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="0">
+                  </form>
 
-                <form id="myForm6" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-down-medium">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
-                </form>
-                <form id="myForm7" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-down-high">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
-                </form>
+                  <form id="myForm5" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-down-low">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
+                  </form>
 
-                <form id="goForm" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="go">
-                    <input type="submit" onclick="spinner()" class="btn btn-danger" value="GO">
-                </form>
-                <br>
-                <br>
+                  <form id="myForm6" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-down-medium">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
+                  </form>
+                  <form id="myForm7" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-down-high">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
+                  </form>
 
-                <form id="correctForm" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="correct">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" value="Correct">
-                </form>
+                  <form id="goForm" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="go">
+                      <input type="submit" onclick="spinner()" class="btn btn-danger" value="GO">
+                  </form>
+                  <br>
+                  <br>
+
+                  <form id="correctForm" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="correct">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" value="Correct">
+                  </form>
+              </div>
             </div>
 
-            
-                
-            
-
-            <div class="col">
+            <div class="col" id="rightArm">
                 <h1 class="text">Right arm</h1>
 
-                <br>
-                <br>
+                <br />
+                <br />
 
-                <form id="myForm8" method="POST">
-                    <input type="radio" checked="checked" style="display:none;" name="arg" value="save-right-up-high">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
-                </form>
+                <h3 style="float:left">Indensity:</h3> <span id="rightArmIntensity"></span>
+                <br />
+                <br />
+                <h3 style="float:left">Direction:</h3> <span id="rightArmSide"></span>
 
-                <form id="myForm9" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-up-medium">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
-                </form>
+                <div hidden=true>
+                  <form id="myForm8" method="POST">
+                      <input type="radio" checked="checked" style="display:none;" name="arg" value="save-right-up-high">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
+                  </form>
 
-                <form id="myForm10" method="POST">
-                    <input type="radio" checked="checked" style="display:none;" name="arg" value="save-right-up-low">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
-                </form>
+                  <form id="myForm9" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-up-medium">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
+                  </form>
 
-                <form id="myForm11" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-zero">
-                    <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="0">
-                </form>
+                  <form id="myForm10" method="POST">
+                      <input type="radio" checked="checked" style="display:none;" name="arg" value="save-right-up-low">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
+                  </form>
 
-                <form id="myForm12" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-down-low">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
-                </form>
+                  <form id="myForm11" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-zero">
+                      <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="0">
+                  </form>
 
-                <form id="myForm13" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-down-medium">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
-                </form>
-                <form id="myForm14" method="POST">
-                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-down-high">
-                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
-                </form>
+                  <form id="myForm12" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-down-low">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
+                  </form>
+
+                  <form id="myForm13" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-down-medium">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
+                  </form>
+                  <form id="myForm14" method="POST">
+                      <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-down-high">
+                      <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
+                  </form>
+                </div>
             </div>
         </div>
-   
     </div>
-
-
-
-
 
     <!-- <form id="myForm4" method="POST">
         <input type="radio" checked="checked" style="display:none;" name="arg" value="down">
@@ -168,15 +173,177 @@ and replace your-access-token-goes-here with your actual access token-->
 
     <script>
         var photon_url = 'https://api.particle.io/v1/devices/3c003d000c47343432313031/led?access_token=63375f0d0aa8e3fc7cd20c304d81ba280e54db86';
-
         var photon_url_2 = 'https://api.particle.io/v1/devices/2c002e000347343339373536/led?access_token=63375f0d0aa8e3fc7cd20c304d81ba280e54db86';
-        
+
+        var time = 0;
+        var firstPost = true;
+        var sessionCounter = 0;
+        var commandCounter = 0;
+        var inTrainingSession = false;
+
+        //These are needed globally
+        var arm; //Arm value. Can be left or right
+
+        //Side values - can be top or bottom
+        var leftSide;
+        var rightSide;
+
+        //Intensity values - can be 1, 2 or 3
+        var leftIntensity;
+        var rightIntensity;
 
         function spinner() {
             document.getElementById('ifYes').style.display = 'block';
         }
 
+        function callPhoton(){
+          var rawPostData;
+          if (leftSide !== undefined && leftIntensity !== undefined){
+            rawPostData = "save-left-" + leftSide + leftIntensity;
+
+            //The z does not matter if there is only this one (then it is split into a meaningful string and an empty string)
+            rawPostData += "z";
+          }
+
+          if (rightSide !== undefined && rightIntensity !== undefined){
+            rawPostData += "save-right-" + rightSide + rightIntensity;
+          }
+
+          var postDataJSON = { "arg": rawPostData };
+
+          //Reset the first time in each trial
+          if (firstPost){
+            time = Date.now();
+          }
+
+          commandCounter += 1;
+
+          $.ajax({
+            type: "POST",
+            url: photon_url,
+            data: postDataJSON,
+            success: function (success){
+              if (success.return_value == 1){console.log("SUCCESS: " + rawPostData);}
+            }
+          });
+
+          $.ajax({
+            type: "POST",
+            url: photon_url_2,
+            data: postDataJSON,
+            success: function (success){
+              if (success.return_value == 1){console.log("SUCCESS: " + rawPostData);}
+            }
+          });
+        };
+
+        function postCorrect(){
+          time = Date.now() - time;
+
+          firstPost = true;
+          sessionCounter = sessionCounter + 1;
+
+          console.log(time + " for session: " + sessionCounter);
+          console.log(commandCounter + " for session: " + commandCounter);
+
+          commandCounter = 0;
+
+          $.ajax({
+            type: "POST",
+            url: photon_url,
+            data: {"arg": "correct"}
+          });
+
+          $.ajax({
+            type: "POST",
+            url: photon_url_2,
+            data: {"arg": "correct"}
+          });
+        }
+
+        function updateUIState(){
+          if (inTrainingSession) {
+            $("body").css("background-color", "green");
+
+            if (arm == "left-"){
+              $("#leftArm").css("background-color", "grey");
+              $("#rightArm").css("background-color", "green");
+            }
+
+            if (arm == "right-"){
+              $("#rightArm").css("background-color", "grey");
+              $("#leftArm").css("background-color", "green");
+            }
+
+            if(leftSide !== undefined && leftSide === "up-") { $("#leftArmSide").text("top"); }
+            if(leftSide !== undefined && leftSide === "down-") { $("#leftArmSide").text("bottom"); }
+
+            $("#leftArmIntensity").text(leftIntensity);
+
+            if(rightSide !== undefined && rightSide === "up-") { $("#rightArmSide").text("top"); }
+            if(rightSide !== undefined && rightSide === "down-") { $("#rightArmSide").text("bottom"); }
+
+            $("#rightArmIntensity").text(rightIntensity);
+          } else {
+            $("body").css("background-color", "white");
+          }
+        }
+
         $(function () {
+            $("body").keypress(function(event){
+              if (inTrainingSession){
+                switch (event.key) {
+                  //Inform the trainer that they are trying to give a command outside of the training session
+                  case "l":
+                    arm = "left-";
+                    break;
+                  case "r":
+                    arm = "right-";
+                    break;
+                  case "t":
+                    if (arm === "left-"){leftSide = "up-";}
+                    if (arm === "right-"){rightSide = "up-";}
+
+                    break;
+                  case "b":
+                    if (arm === "left-"){leftSide = "down-";}
+                    if (arm === "right-"){rightSide = "down-";}
+                    break;
+                  case "0":
+                    if (arm === "left-"){leftIntensity = "zero";}
+                    if (arm === "right-"){rightIntensity = "zero";}
+                    break;
+                  case "1":
+                    if (arm === "left-"){leftIntensity = "low";}
+                    if (arm === "right-"){rightIntensity = "low";}
+                    break;
+                  case "2":
+                    if (arm === "left-"){leftIntensity = "medium";}
+                    if (arm === "right-"){rightIntensity = "medium";}
+                    break;
+                  case "3":
+                    if (arm === "left-"){leftIntensity = "high";}
+                    if (arm === "right-"){rightIntensity = "high";}
+                    break;
+                  case "c":
+                    postCorrect();
+                    break;
+                  default:
+                    console.log("Unknown command");
+                    break;
+                }
+              }
+
+            if(event.charCode === 13){
+              callPhoton();
+            }
+            if(event.charCode === 32){
+              inTrainingSession = !inTrainingSession
+            }
+
+            updateUIState();
+          });
+
             $("#myForm1").on("submit", function (e) {
                 e.preventDefault();
                 $.ajax({
