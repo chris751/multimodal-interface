@@ -1,0 +1,316 @@
+<!-- Replace your-device-ID-goes-here with your actual device ID
+and replace your-access-token-goes-here with your actual access token-->
+<!DOCTYPE>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://use.fontawesome.com/f1c470c43f.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/f1c470c43f.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+    <style>
+        #button1 {
+            width: 200px;
+            height: 40px;
+        }
+
+        #myForm2 {
+            margin-left: 20px;
+            padding-right: 20px;
+            display: inline;
+        }
+
+        #myForm {
+            display: inline;
+        }
+
+
+        #myForm5 {
+            margin-left: 100px;
+            padding-right: 20px;
+            display: inline;
+        }
+
+        #myForm6 {
+            display: inline;
+        }
+
+
+        #myForm3 {
+            padding-left: 135px;
+        }
+
+        #myForm4 {
+            padding-top: 20px;
+            padding-left: 135px;
+        }
+
+        #ifYes {
+            padding-left: 470px;
+        }
+
+        .text {
+            display: inline-block;
+
+            padding-left: 160px;
+        }
+
+        .text2 {
+            display: inline-block;
+            padding-left: 370px;
+        }
+    </style>
+
+    <!-- <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+    <i class="fa fa-arrow-left fa-5x" aria-hidden="true"></i>
+    <i class="fa fa-arrow-right fa-5x" aria-hidden="true"></i> -->
+
+    <br>
+
+    <br>
+    <div id="container">
+
+
+        <!-- <form id="myForm3" method="POST">
+        <input type="radio" checked="checked" style="display:none;" name="arg" value="up">
+        <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="Up">
+    </form> -->
+        <h1 class="text">Left arm</h1>
+
+
+        <h1 class="text2">Right arm</h1>
+        <br>
+        <br>
+
+        <form id="myForm2" method="POST">
+            <input type="radio" checked="checked" style="display:none;" name="arg" value="left-l">
+            <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Left">
+        </form>
+
+        <form id="myForm" method="POST">
+            <input type="radio" checked="checked" style="display:none" name="arg" value="right-l">
+            <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Right">
+        </form>
+
+        <form id="myForm5" method="POST">
+            <input type="radio" checked="checked" style="display:none;" name="arg" value="left-r">
+            <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="Left">
+        </form>
+
+        <form id="myForm6" method="POST">
+            <input type="radio" checked="checked" style="display:none" name="arg" value="right-r">
+            <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="Right">
+        </form>
+
+        <center>
+            <br>
+            <br>
+            <br>
+            <form id="myForm7" method="POST">
+                <input type="text" name="intensity" value="250">
+                <br>
+                <br>
+                <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="Send">
+            </form>
+
+            <form id="myForm8" method="POST">
+                <input type="text" name="intensity" value="167">
+                <br>
+                <br>
+                <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="Send">
+            </form>
+        </center>
+
+        <!-- <form id="myForm4" method="POST">
+        <input type="radio" checked="checked" style="display:none;" name="arg" value="down">
+        <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="Down">
+    </form> -->
+        <br>
+        <br>
+        <div id="ifYes" style="display:none">
+            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <script>
+        var photon_url =
+            'https://api.particle.io/v1/devices/3c003d000c47343432313031/led?access_token=63375f0d0aa8e3fc7cd20c304d81ba280e54db86';
+
+        function spinner() {
+            document.getElementById('ifYes').style.display = 'block';
+        }
+        $(function () {
+            $("#myForm").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm2").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm5").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm6").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm7").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm8").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+    </script>
+    </center>
+</body>
+
+</html>

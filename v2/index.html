@@ -1,0 +1,640 @@
+<!-- Replace your-device-ID-goes-here with your actual device ID
+and replace your-access-token-goes-here with your actual access token-->
+<!DOCTYPE>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://use.fontawesome.com/f1c470c43f.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/f1c470c43f.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <!-- <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+    <i class="fa fa-arrow-left fa-5x" aria-hidden="true"></i>
+    <i class="fa fa-arrow-right fa-5x" aria-hidden="true"></i> -->
+
+    <style>  
+    
+    #button1 {
+        width: 200px;
+        height: 40px;
+    }
+
+    #goForm {
+            display: inline;
+            padding-left: 350px;
+        }
+
+        #correctForm {
+            display: inline;
+            padding-left: 335px;
+        }
+
+        #ifYes {
+            padding-left: 725px;
+        }
+    </style>
+
+    <br>
+
+    <br>
+    <div class="container">
+        <div class="row">   
+
+            <div class="col">
+                <h1 class="text">Left arm</h1>
+
+                <br>
+                <br>
+
+                <form id="myForm1" method="POST">
+                    <input type="radio" checked="checked" style="display:none;" name="arg" value="save-left-up-high">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
+                </form>
+
+                <form id="myForm2" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-up-medium">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
+                </form>
+
+                <form id="myForm3" method="POST">
+                    <input type="radio" checked="checked" style="display:none;" name="arg" value="save-left-up-low">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
+                </form>
+
+                <form id="myForm4" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-zero">
+                    <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="0">
+                </form>
+
+                <form id="myForm5" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-down-low">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
+                </form>
+
+                <form id="myForm6" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-down-medium">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
+                </form>
+                <form id="myForm7" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-left-down-high">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
+                </form>
+
+                <form id="goForm" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="go">
+                    <input type="submit" onclick="spinner()" class="btn btn-danger" value="GO">
+                </form>
+                <br>
+                <br>
+
+                <form id="correctForm" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="correct">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" value="Correct">
+                </form>
+            </div>
+
+            
+                
+            
+
+            <div class="col">
+                <h1 class="text">Right arm</h1>
+
+                <br>
+                <br>
+
+                <form id="myForm8" method="POST">
+                    <input type="radio" checked="checked" style="display:none;" name="arg" value="save-right-up-high">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
+                </form>
+
+                <form id="myForm9" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-up-medium">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
+                </form>
+
+                <form id="myForm10" method="POST">
+                    <input type="radio" checked="checked" style="display:none;" name="arg" value="save-right-up-low">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
+                </form>
+
+                <form id="myForm11" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-zero">
+                    <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="0">
+                </form>
+
+                <form id="myForm12" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-down-low">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Low">
+                </form>
+
+                <form id="myForm13" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-down-medium">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="Medium">
+                </form>
+                <form id="myForm14" method="POST">
+                    <input type="radio" checked="checked" style="display:none" name="arg" value="save-right-down-high">
+                    <input type="submit" onclick="spinner()" class="btn btn-success" id="button1" value="High">
+                </form>
+            </div>
+        </div>
+   
+    </div>
+
+
+
+
+
+    <!-- <form id="myForm4" method="POST">
+        <input type="radio" checked="checked" style="display:none;" name="arg" value="down">
+        <input type="submit" onclick="spinner()" class="btn btn-primary" id="button1" value="Down">
+    </form> -->
+    <br>
+    <br>
+    <div id="ifYes" style="display:none">
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+    </div>
+    </div>
+
+    <script>
+        var photon_url = 'https://api.particle.io/v1/devices/3c003d000c47343432313031/led?access_token=63375f0d0aa8e3fc7cd20c304d81ba280e54db86';
+
+        var photon_url_2 = 'https://api.particle.io/v1/devices/2c002e000347343339373536/led?access_token=63375f0d0aa8e3fc7cd20c304d81ba280e54db86';
+        
+
+        function spinner() {
+            document.getElementById('ifYes').style.display = 'block';
+        }
+
+        $(function () {
+            $("#myForm1").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm2").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm3").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+        $(function () {
+            $("#myForm4").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm5").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm6").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm7").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm8").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm9").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm10").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm11").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm12").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm13").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#myForm14").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#goForm").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#goForm").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url_2,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+
+        $(function () {
+            $("#correctForm").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: photon_url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    complete: function () {
+                        //called when complete
+                        console.log('process complete');
+                        document.getElementById('ifYes').style.display = 'none';
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        console.log('process sucess');
+                        var myJSON = JSON.stringify(data);
+
+                        //alert(myJSON);
+                    },
+
+                    error: function () {
+                        console.log('process error');
+                    },
+                });
+            });
+        });
+    </script>
+    </center>
+</body>
+
+</html>
